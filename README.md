@@ -81,7 +81,8 @@ rate(http_requests_total{status_code=~"5.."}[5m])
 # Response speed
 histogram_quantile(0.95, rate(http_request_duration_seconds_bucket[5m]))
 ```
-
+![Web Monitoring Demo](./images/promethus.png)
+![Grafana Dashboard](./images/grafana.png))
 ## Configuration
 
 - Prometheus config: [`prometheus/prometheus.yml`](prometheus/prometheus.yml)
