@@ -1,6 +1,13 @@
 # Web Monitoring Stack
 
+This project is a simple web application I set up to practice monitoring, troubleshooting, and alerting. I deployed a small Python/Flask web app with two endpoints – one for normal requests and one for health checks. Then I connected it with Prometheus and Grafana to collect and visualize metrics.
+
+For example, Prometheus scrapes data like the number of HTTP requests, response times, and error rates. Grafana then shows those metrics on a live dashboard. To simulate real-world traffic, I wrote a script that sends repeated HTTP requests so I can see how the system behaves under load.
+
+If the app slows down or errors increase, I can immediately see it on Grafana and even configure alerts. This aligns directly with Moniepoint’s role because it shows my ability to research, diagnose, and troubleshoot issues quickly using metrics and logs. It’s basically a small-scale version of how you’d monitor critical financial applications
+
 This project provides a simple web monitoring stack using Flask, Prometheus, and Grafana. It allows you to monitor a demo web application and visualize metrics.
+
 
 ## Project Structure
 
@@ -80,6 +87,7 @@ rate(http_requests_total{status_code=~"5.."}[5m])
 
 # Response speed
 histogram_quantile(0.95, rate(http_request_duration_seconds_bucket[5m]))
+
 ```
 ![Web Monitoring Demo](./images/promethus.png)
 ![Grafana Dashboard](./images/grafana.png))
